@@ -101,16 +101,21 @@ nav a:hover { color: var(--accent); }
 
 .topics {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  align-items: stretch;
   margin-top: 18px;
 }
 
 .card {
   background: var(--card);
-  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* распределяет контент по высоте */
+  padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(12,18,24,0.04);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  height: 100%;
 }
 
 .chip {
