@@ -1,11 +1,11 @@
 const THEMES = [
-  { id:1, title:'Թեմա 1. Ընդհանուր հասկացություններ', video:'videos/topic1.mp4', content:'Էլեկտրոնային ուսուցումը ընդգրկում է օնլայն և հեռավար մեթոդներ։' },
-  { id:2, title:'Թեմա 2. Դասընթացների պահանջներ', video:'videos/topic2.mp4', content:'Դիդակտիկ, տեխնիկական և դիզայնի սկզբունքներ։' },
-  { id:3, title:'Թեմա 3. Նախագծման փուլեր', video:'videos/topic3.mp4', content:'Վերլուծություն, պլանավորում, ստեղծում, թեստավորում։' },
-  { id:4, title:'Թեմա 4. LMS հարթակներ', video:'videos/topic4.mp4', content:'Moodle, Google Classroom, Blackboard։' },
-  { id:5, title:'Թեմա 5. Դասընթացների ծրագրեր', video:'videos/topic5.mp4', content:'Storyline, Captivate, iSpring Suite։' },
-  { id:6, title:'Թեմա 6. Տեսանյութեր և անիմացիա', video:'videos/topic6.mp4', content:'Սցենար, մոնտաժ, ենթագրեր։' },
-  { id:7, title:'Թեմա 7. Թեստեր', video:'videos/topic7.mp4', content:'iSpring, Google Forms, Hot Potatoes։' },
+  { id:1, title:'Թեմա 1. Ընդհանուր հասկացություններ', video:'videos/topic1.mp4', content:'Էլեկտրոնային ուսուցումը ընդգրկում է օնլայն և հեռավար մեթոդներ։', bgImg: "tema1" },
+  { id:2, title:'Թեմա 2. Դասընթացների պահանջներ', video:'videos/topic2.mp4', content:'Դիդակտիկ, տեխնիկական և դիզայնի սկզբունքներ։', bgImg: "tema2" },
+  { id:3, title:'Թեմա 3. Նախագծման փուլեր', video:'videos/topic3.mp4', content:'Վերլուծություն, պլանավորում, ստեղծում, թեստավորում։', bgImg: "tema3" },
+  { id:4, title:'Թեմա 4. LMS հարթակներ', video:'videos/topic4.mp4', content:'Moodle, Google Classroom, Blackboard։', bgImg: "tema4" },
+  { id:5, title:'Թեմա 5. Դասընթացների ծրագրեր', video:'videos/topic5.mp4', content:'Storyline, Captivate, iSpring Suite։', bgImg: "tema5" },
+  { id:6, title:'Թեմա 6. Տեսանյութեր և անիմացիա', video:'videos/topic6.mp4', content:'Սցենար, մոնտաժ, ենթագրեր։', bgImg: "tema6" },
+  { id:7, title:'Թեմա 7. Թեստեր', video:'videos/topic7.mp4', content:'iSpring, Google Forms, Hot Potatoes։', bgImg: "tema2" },
 ];
 
 const QUIZ_Q = [
@@ -30,12 +30,16 @@ const quizArea = document.getElementById('quizArea');
 // Render topics
 THEMES.forEach(t=>{
   const card=document.createElement('article');
+  const cardImg=document.createElement('div');
   card.className='card';
+  cardImg.className='card-img';
+  cardImg.style.backgroundImage = `url(images/${t.bgImg}.jpg)`
   card.innerHTML=`<h3>${t.title}</h3><p>${t.content}</p>
     <div class="actions">
       <button class="btn openTopic" data-id="${t.id}">Դիտել</button>
       <button class="btn secondary markDone" data-id="${t.id}">Նշել կարդացած</button>
     </div>`;
+  card.appendChild(cardImg);
   topicsList.appendChild(card);
 });
 
