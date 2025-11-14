@@ -5,7 +5,7 @@ const THEMES = [
   { id:4, title:'Թեմա 4. LMS հարթակներ', video:'videos/topic4.mp4', content:'Moodle, Google Classroom, Blackboard։', bgImg: "tema4" },
   { id:5, title:'Թեմա 5. Դասընթացների ծրագրեր', video:'videos/topic5.mp4', content:'Storyline, Captivate, iSpring Suite։', bgImg: "tema5" },
   { id:6, title:'Թեմա 6. Տեսանյութեր և անիմացիա', video:'videos/topic6.mp4', content:'Սցենար, մոնտաժ, ենթագրեր։', bgImg: "tema6" },
-  { id:7, title:'Թեմա 7. Թեստեր', video:'videos/topic7.mp4', content:'iSpring, Google Forms, Hot Potatoes։', bgImg: "tema2" },
+  { id:7, title:'Թեմա 7. Թեստեր', video:'videos/topic7.mp4', content:'iSpring, Google Forms, Hot Potatoes։', bgImg: "tema7" },
 ];
 
 const QUIZ_Q = [
@@ -22,26 +22,30 @@ const QUIZ_Q = [
 ];
 
 const topicsList = document.getElementById('topicsList');
+console.log(topicsList);
+
 const topicDetail = document.getElementById('topicDetail');
 const progressBar = document.getElementById('progressBar');
 const progressPercent = document.getElementById('progressPercent');
 const quizArea = document.getElementById('quizArea');
 
 // Render topics
-THEMES.forEach(t=>{
-  const card=document.createElement('article');
-  const cardImg=document.createElement('div');
-  card.className='card';
-  cardImg.className='card-img';
-  cardImg.style.backgroundImage = `url(images/${t.bgImg}.jpg)`
-  card.innerHTML=`<h3>${t.title}</h3><p>${t.content}</p>
-    <div class="actions">
-      <button class="btn openTopic" data-id="${t.id}">Դիտել</button>
-      <button class="btn secondary markDone" data-id="${t.id}">Նշել կարդացած</button>
-    </div>`;
-  card.appendChild(cardImg);
-  topicsList.appendChild(card);
-});
+if (topicsList) {
+  THEMES.forEach(t=>{
+    const card=document.createElement('article');
+    const cardImg=document.createElement('div');
+    card.className='card';
+    cardImg.className='card-img';
+    cardImg.style.backgroundImage = `url(images/${t.bgImg}.jpg)`
+    card.innerHTML=`<h3>${t.title}</h3><p>${t.content}</p>
+      <div class="actions">
+        <button class="btn openTopic" data-id="${t.id}">Դիտել</button>
+        <button class="btn secondary markDone" data-id="${t.id}">Նշել կարդացած</button>
+      </div>`;
+    card.appendChild(cardImg);
+    topicsList.appendChild(card);
+  });
+}
 
 document.body.addEventListener('click', e=>{
   if(e.target.matches('.openTopic')) openTopic(+e.target.dataset.id);
@@ -52,6 +56,8 @@ const DONE_KEY='el_done_topics_v2';
 function getDone(){return JSON.parse(localStorage.getItem(DONE_KEY)||'[]');}
 function setDone(arr){localStorage.setItem(DONE_KEY,JSON.stringify(arr));updateProgress();}
 function markDone(id){
+  console.log(id);
+  
   let done=getDone();
   if(!done.includes(id)){
     done.push(id);
@@ -63,8 +69,13 @@ function markDone(id){
 function updateProgress(){
   const done=getDone();
   const pct=Math.round((done.length/THEMES.length)*100);
-  progressBar.style.width=pct+'%';
-  progressPercent.textContent=pct+'%';
+  if (progressBar) {
+    progressBar.style.width=pct+'%';
+  }
+
+  if (progressPercent) {
+    progressPercent.textContent=pct+'%';
+  }
 }
 
 // ---- Open topic ----
@@ -88,45 +99,59 @@ function openTopic(id){
   topicDetail.scrollIntoView({behavior:'smooth'});
 }
 
-document.getElementById('startBtn').addEventListener('click',()=>document.getElementById('topics').scrollIntoView({behavior:'smooth'}));
-document.getElementById('openAll').addEventListener('click',()=>THEMES.forEach(t=>openTopic(t.id)));
+if (document.getElementById('startBtn') && document.getElementById('topics')) {
+  document.getElementById('startBtn').addEventListener('click',()=>document.getElementById('topics').scrollIntoView({behavior:'smooth'}));
+}
+
+if (document.getElementById('openAll')) {
+  document.getElementById('openAll').addEventListener('click',()=>THEMES.forEach(t=>openTopic(t.id)));
+}
 
 updateProgress();
 
 // ---- Quiz ----
-document.getElementById('openQuiz').addEventListener('click',openQuiz);
+if (document.getElementById('openQuiz')) {
+  document.getElementById('openQuiz').addEventListener('click',openQuiz);
+}
 
 function openQuiz(){
-  quizArea.innerHTML='';
-  quizArea.classList.add('visible');
-
-  const closeBtn=document.createElement('button');
-  closeBtn.textContent='✖';
-  closeBtn.className='closeQuiz';
-  closeBtn.style='position:absolute;top:5px;right:8px;border:none;background:transparent;font-size:18px;cursor:pointer;';
-  closeBtn.onclick=()=>{quizArea.classList.remove('visible');quizArea.innerHTML='';};
-  quizArea.appendChild(closeBtn);
-
-  const form=document.createElement('form');
-  QUIZ_Q.forEach((item,i)=>{
-    const qdiv=document.createElement('div');
-    qdiv.className='question';
-    qdiv.innerHTML=`<strong>${i+1}. ${item.q}</strong>`;
-    item.opts.forEach((opt,j)=>{
-      qdiv.innerHTML+=`<div><label><input type="radio" name="q${i}" value="${j}"> ${opt}</label></div>`;
+  if (quizArea) {
+    document.getElementById('openQuiz').style='display:none'
+    quizArea.innerHTML='';
+    quizArea.classList.add('visible');
+  
+    const closeBtn=document.createElement('button');
+    closeBtn.textContent='✖';
+    closeBtn.className='closeQuiz';
+    closeBtn.style='position:absolute;top:5px;right:8px;border:none;background:transparent;font-size:18px;cursor:pointer;';
+    closeBtn.onclick=()=>{
+      quizArea.classList.remove('visible');
+      quizArea.innerHTML=''
+      document.getElementById('openQuiz').style='display:flex'
+      };
+    quizArea.appendChild(closeBtn);
+  
+    const form=document.createElement('form');
+    QUIZ_Q.forEach((item,i)=>{
+      const qdiv=document.createElement('div');
+      qdiv.className='question';
+      qdiv.innerHTML=`<strong>${i+1}. ${item.q}</strong>`;
+      item.opts.forEach((opt,j)=>{
+        qdiv.innerHTML+=`<div><label><input type="radio" name="q${i}" value="${j}"> ${opt}</label></div>`;
+      });
+      form.appendChild(qdiv);
     });
-    form.appendChild(qdiv);
-  });
-
-  const btn=document.createElement('button');
-  btn.textContent='Ավարտել թեստը';
-  btn.className='btn';
-  btn.type='button';
-  btn.onclick=()=>gradeQuiz(form);
-  form.appendChild(btn);
-  quizArea.appendChild(form);
-
-  quizArea.scrollIntoView({behavior:'smooth'});
+  
+    const btn=document.createElement('button');
+    btn.textContent='Ավարտել թեստը';
+    btn.className='btn';
+    btn.type='button';
+    btn.onclick=()=>gradeQuiz(form);
+    form.appendChild(btn);
+    quizArea.appendChild(form);
+  
+    quizArea.scrollIntoView({behavior:'smooth'});
+  }
 }
 
 function gradeQuiz(form){
@@ -138,6 +163,7 @@ function gradeQuiz(form){
   });
   const pct=Math.round((score/QUIZ_Q.length)*100);
   alert(`Ճիշտ պատասխաններ՝ ${score}/${QUIZ_Q.length} (${pct}%)`);
+  // document.getElementById('openQuiz').style='display:flex'
 }
 
 function toast(msg){
