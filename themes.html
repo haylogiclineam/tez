@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Էլեկտրոնային ուսուցում — Դեմո</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="themes.css" />
 </head>
 <body>
   <div class="container">
@@ -19,8 +20,24 @@
 
       <nav>
         <a href="index.html">Գլխավոր</a>
-        <a href="#">Թեմաներ</a>
-        <a href="test.html">Թեստ</a>
+        <div class="dropdown">
+          <a href="#" class="dropbtn">Թեմաներ</a>
+          <div class="dropdown-content">
+            <a href="themes.html?topic=1">
+              Թեմա 1. Էլեկտրոնային ուսուցման ընդհանուր հասկացությունները. հիմքային տեսական գիտելիքներ...
+            </a>
+            <a href="themes.html?topic=2">
+              Թեմա 2. Էլեկտրոնային դասընթացների էությունը, ներկայացվող պահանջները և որակյալ դասընթացի հատկանիշները
+            </a>
+            </div>
+        </div>
+        <div class="dropdown">
+          <a href="test.html" class="dropbtn">Թեստ</a>
+          <div class="dropdown-content">
+            <a href="test.html?test=1">Թեստ 1. Էլեկտրոնային ուսուցման ընդհանուր հասկացությունները</a>
+            <a href="test.html?test=2">Թեստ 2. Էլեկտրոնային դասընթացների էությունը, ներկայացվող պահանջները</a>
+          </div>
+        </div>
       </nav>
     </header>
 

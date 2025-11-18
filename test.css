@@ -1,0 +1,85 @@
+/* Թեստային քարտի ընդհանուր տեսքը */
+.quiz-card {
+    position: relative;
+    padding-top: 20px; /* Տեղ թողնել վերնագրի և փակելու կոճակի համար */
+    overflow: hidden; /* Թաքցնել այն, ինչը դուրս է գալիս քարտից */
+}
+
+/* Թեստի բաժինը, երբ այն ակտիվ է */
+.quiz {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    padding: 10px 0;
+}
+
+.quiz.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Փակելու կոճակը */
+.closeQuiz {
+    /* Փոխարինում ենք ներքին ոճերը: */
+    position: absolute;
+    top: 20px; /* Կենտրոնացնում ենք վերնագրի մոտ */
+    right: 20px;
+    background: transparent;
+    color: #555; /* Ավելի մեղմ գույն */
+    border: none;
+    font-size: 24px; /* Ավելի տեսանելի չափ */
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+    line-height: 1; /* Համոզվել, որ X-ը ճիշտ է նստում */
+    padding: 0;
+}
+
+.closeQuiz:hover {
+    color: #d9534f; /* Կարմիր գույն hover-ի ժամանակ */
+    transform: rotate(90deg); /* Գեղեցիկ անիմացիա */
+}
+
+/* Հարցերի ոճավորում */
+.question {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9; /* Թեթև ֆոնային գույն */
+    border-left: 5px solid #007bff; /* Գունավոր եզր */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.question strong {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.question label {
+    display: block;
+    margin-bottom: 8px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.question label:hover {
+    background-color: #eee;
+}
+
+.question input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #007bff; /* Ռադիո կոճակների գույն */
+}
+
+/* Թեստի ավարտի կոճակը */
+.quiz form > .btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    font-size: 1.1em;
+    background-color: #28a745; /* Կանաչ՝ ավարտի համար */
+    border: none;
+    color: white;
+}
