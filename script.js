@@ -345,18 +345,21 @@ const quizArea = document.getElementById('quizArea');
 
 if (topicsList) {
   THEMES.forEach(t=>{
-    const card=document.createElement('article');
-    const cardImg=document.createElement('div');
-    card.className='card';
-    cardImg.className='card-img';
+    const div = document.createElement('div');
+    div.className = 'card-block-item'
+    const card = document.createElement('article');
+    const cardImg = document.createElement('div');
+    card.className = 'card';
+    cardImg.className = 'card-img';
     cardImg.style.backgroundImage = `url(images/${t.bgImg}.jpg)`
     card.innerHTML=`<h3>${t.title}</h3><p>${t.content}</p>
       <div class="actions">
         <button class="btn openTopic" data-id="${t.id}">Դիտել</button>
         <button class="btn secondary markDone" data-id="${t.id}">Նշել կարդացած</button>
       </div>`;
-    card.appendChild(cardImg);
-    topicsList.appendChild(card);
+    div.appendChild(cardImg)
+    div.appendChild(card)
+    topicsList.appendChild(div);
   });
 }
 
