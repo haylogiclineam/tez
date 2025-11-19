@@ -1,0 +1,152 @@
+/* practice-style.css */
+
+/* Ընդհանուր ոճեր (Ենթադրվում է, որ container և btn ոճերը կան) */
+
+.practice-header {
+    text-align: center;
+    padding: 40px 0 20px;
+    border-bottom: 3px solid #007bff;
+    margin-bottom: 30px;
+}
+
+.main-title {
+    font-size: 2.5em;
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Առաջադրանքների Grid */
+.task-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Ապահովում է ռեսպոնսիվություն */
+    gap: 30px;
+}
+
+.task-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    position: relative;
+    border-top: 5px solid #28a745; /* Ակցենտային գույն */
+}
+
+/* Առաջադրանքի համարը */
+.task-icon {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    background-color: #007bff;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.task-card h2 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #eee;
+}
+
+.task-content {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Սցենարների ցուցակը (Առաջադրանք 1) */
+.scenario-list {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.scenario-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-left: 4px solid #ffc107; /* Դեղին ակցենտ */
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.scenario-number {
+    font-weight: bold;
+    color: #495057;
+}
+
+.practice-content {
+    display: none;
+    /* Լրացուցիչ ոճեր, եթե կան */
+}
+
+/* Ցուցադրել միայն ակտիվ բլոկը */
+.practice-content.active {
+    display: block;
+}
+
+.hint {
+    display: block;
+    font-style: italic;
+    font-size: 0.9em;
+    color: #007bff;
+    margin-top: 5px;
+}
+
+.task-footer {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.task-footer h4 {
+    color: #495057;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+/* Տեսանյութի Առաջադրանքի ոճ (Առաջադրանք 2) */
+.video-task {
+    border-top: 5px solid #dc3545; /* Կարմիր ակցենտ */
+}
+
+.video-task .task-icon {
+    background-color: #dc3545;
+}
+
+.video-task ol {
+    padding-left: 20px;
+    list-style-type: decimal;
+}
+
+.btn.primary {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn.primary:hover {
+    background-color: #0056b3;
+}
+
+.practice-container {
+    padding: 0 50px 30px 50px;
+}

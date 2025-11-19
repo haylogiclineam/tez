@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Էլեկտրոնային ուսուցում — Դեմո</title>
+  <link rel="stylesheet" href="auth.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -12,61 +13,97 @@
       <div class="brand">
         <div class="logo">HL</div>
         <div>
-          <div class="brand-title">E-Learning DEMO</div>
+          <div class="brand-title">Էլեկտրոնային դասընթացների նախագծման տեխնալոգիաներ</div>
           <div class="brand-sub">Պարզ և ինտերակտիվ ուսուցման նմուշ</div>
         </div>
       </div>
 
-      <nav>
-        <a href="#">Գլխավոր</a>
-        <div class="dropdown">
-          <a href="themes.html" class="dropbtn">Թեմաներ</a>
-          <div class="dropdown-content">
-            <a href="themes.html?topic=1">
-              Թեմա 1. Էլեկտրոնային ուսուցման ընդհանուր հասկացությունները. հիմքային տեսական գիտելիքներ...
-            </a>
-            <a href="themes.html?topic=2">
-              Թեմա 2. Էլեկտրոնային դասընթացների էությունը, ներկայացվող պահանջները և որակյալ դասընթացի հատկանիշները
-            </a>
-            </div>
-        </div>        
-        <div class="dropdown">
-          <a href="test.html" class="dropbtn">Թեստ</a>
-          <div class="dropdown-content">
-            <a href="test.html?test=1">Թեստ 1. Էլեկտրոնային ուսուցման ընդհանուր հասկացությունները</a>
-            <a href="test.html?test=2">Թեստ 2. Էլեկտրոնային դասընթացների էությունը, ներկայացվող պահանջները</a>
-          </div>
-        </div>
-      </nav>
+      <!-- <nav>
+        <a href="auth.html">Մուտք</a>
+      </nav> -->
     </header>
 
-    <main>
-      <div id="home"></div>
-      <section id="newVersion">
-        <div class="hero">
-          <div class="left">
-            <h1>Էլեկտրոնային ուսուցման թեմատիկ ծրագիր</h1>
-            <p>Աշխատող տարբերակ՝ նշում, թեստ, առաջընթաց և արդյունք։</p>
-            <div class="cta">
-              <button class="btn" id="startBtn">Սկսել ուսումը</button>
-              
-            </div>
+    <main class="main-page-main">
+      <div id="home">
+        <section id="newVersion">
+          <div class="hero">
+            <div class="left">
+              <h1>Էլեկտրոնային դասընթացների նախագծման տեխնալոգիաներ</h1>
+              <p>Ուսուցման աջակցման վեբ կայք</p>
+              <!-- <p>Աշխատող տարբերակ՝ նշում, թեստ, առաջընթաց և արդյունք։</p> -->
+              <!-- <div class="cta">
+                <button class="btn" id="startBtn">Սկսել ուսումը</button>
+                
+              </div> -->
 
-            <div class="progress-wrap">
-              <div class="progress-label">Ձեր առաջընթացը՝ <span id="progressPercent">0%</span></div>
-              <div class="progress"><i id="progressBar"></i></div>
+              <!-- <div class="progress-wrap">
+                <div class="progress-label">Ձեր առաջընթացը՝ <span id="progressPercent">0%</span></div>
+                <div class="progress"><i id="progressBar"></i></div>
+              </div> -->
             </div>
+            <!-- <div class="hero-img">
+              <img src="https://via.placeholder.com/220x140?text=E-Learning+Preview" alt="logo" />
+            </div> -->
           </div>
-          <!-- <div class="hero-img">
-            <img src="https://via.placeholder.com/220x140?text=E-Learning+Preview" alt="logo" />
-          </div> -->
-        </div>
-      </section>
+          <main class="main-content-auth">
+              <div class="auth-wrapper">
+                <div class="auth-box">
+            
+                  <div class="tabs">
+                    <button class="tab active" data-tab="login">Մուտք</button>
+                    <button class="tab" data-tab="register">Գրանցում</button>
+                  </div>
+            
+                  <!-- LOGIN -->
+                  <form class="form active" id="loginForm">
+                    <h2>Մուտք</h2>
+            
+                    <div class="input-group">
+                      <label>Էլ. հասցե</label>
+                      <input type="email" placeholder="example@mail.com" required>
+                    </div>
+            
+                    <div class="input-group">
+                      <label>Գաղտնաբառ</label>
+                      <input type="password" placeholder="••••••••" required>
+                    </div>
+            
+                    <button class="btn-primary">Մուտք</button>
+                  </form>
+            
+                  <!-- REGISTER -->
+                  <form class="form" id="registerForm">
+                    <h2>Գրանցում</h2>
+            
+                    <div class="input-group">
+                      <label>Անուն</label>
+                      <input type="text" placeholder="Ձեր անունը" required>
+                    </div>
+            
+                    <div class="input-group">
+                      <label>Էլ. հասցե</label>
+                      <input type="email" placeholder="example@mail.com" required>
+                    </div>
+            
+                    <div class="input-group">
+                      <label>Գաղտնաբառ</label>
+                      <input type="password" placeholder="••••••••" required>
+                    </div>
+            
+                    <button class="btn-primary">Գրանցվել</button>
+                  </form>
+            
+                </div>
+              </div>
+          </main>
+        </section>
+      </div>
 
     </main>
     <footer>© Էլեկտրոնային ուսուցման փորձնական հարթակ</footer>
   </div>
 
+  <script src="auth.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

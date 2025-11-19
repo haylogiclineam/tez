@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="hy">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Էլեկտրոնային ուսուցում — Դեմո</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="auth.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">HL</div>
+        <div>
+          <div class="brand-title">Էլեկտրոնային դասընթացների նախագծման տեխնալոգիաներ</div>
+          <div class="brand-sub">Պարզ և ինտերակտիվ ուսուցման նմուշ</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="auth.html">Մուտք</a>
+      </nav>
+    </header>
+
+    <main>
+        <div class="auth-wrapper">
+          <div class="auth-box">
+      
+            <div class="tabs">
+              <button class="tab active" data-tab="login">Մուտք</button>
+              <button class="tab" data-tab="register">Գրանցում</button>
+            </div>
+      
+            <!-- LOGIN -->
+            <form class="form active" id="loginForm">
+              <h2>Մուտք</h2>
+      
+              <div class="input-group">
+                <label>Էլ. հասցե</label>
+                <input type="email" placeholder="example@mail.com" required>
+              </div>
+      
+              <div class="input-group">
+                <label>Գաղտնաբառ</label>
+                <input type="password" placeholder="••••••••" required>
+              </div>
+      
+              <button class="btn-primary">Մուտք</button>
+            </form>
+      
+            <!-- REGISTER -->
+            <form class="form" id="registerForm">
+              <h2>Գրանցում</h2>
+      
+              <div class="input-group">
+                <label>Անուն</label>
+                <input type="text" placeholder="Ձեր անունը" required>
+              </div>
+      
+              <div class="input-group">
+                <label>Էլ. հասցե</label>
+                <input type="email" placeholder="example@mail.com" required>
+              </div>
+      
+              <div class="input-group">
+                <label>Գաղտնաբառ</label>
+                <input type="password" placeholder="••••••••" required>
+              </div>
+      
+              <button class="btn-primary">Գրանցվել</button>
+            </form>
+      
+          </div>
+        </div>
+      </main>
+      
+    <footer>© Էլեկտրոնային ուսուցման փորձնական հարթակ</footer>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+/* home-style.css */
+
+/* --- Ընդհանուր ոճեր --- */
+main {
+    padding: 0; /* Հեռացնում ենք հիմնական padding-ը ամբողջ էջի համար */
+}
+
+section {
+    padding: 60px 5%;
+    /* max-width: 1200px; */
+    margin: 0 auto;
+}
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+/* --- Hero Section Ոճեր --- */
+.hero {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    padding: 50px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    border-radius: 0;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    color: white;
+    font-size: 3em;
+    text-align: left;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.25em;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    text-align: left;
+}
+
+.hero-illustration {
+    min-width: 300px;
+    max-width: 555px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    /* Պատկերի համար նախատեսված տարածք */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.hero-illustration img {
+    width: 100%;
+    height: 100%;
+}
+
+.btn.primary.large-btn {
+    background-color: #ffc107; /* Ակցենտային գույն */
+    color: #333;
+    padding: 15px 35px;
+    font-size: 1.1em;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.btn.primary.large-btn:hover {
+    background-color: #e0a800;
+}
+
+/* --- Features Section Ոճեր --- */
+.features {
+    background-color: #f8f9fa;
+    padding: 50px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card .icon {
+    font-size: 2.5em;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    color: #007bff;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+}
+
+/* --- Audience Section Ոճեր --- */
+.audience {
+    text-align: center;
+}
+
+.audience-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.audience-item {
+    background-color: #e9ecef;
+    color: #495057;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 500;
+    border: 1px solid #dee2e6;
+    transition: background-color 0.3s;
+}
+
+.audience-item:hover {
+    background-color: #dee2e6;
+}
+
+/* --- Media Queries (Responsive Design) --- */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 5%;
+    }
+
+    .hero h1, .hero p {
+        text-align: center;
+    }
+
+    .hero-illustration {
+        width: 100%;
+        margin-top: 20px;
+    }
+}

@@ -13,36 +13,56 @@
       <div class="brand">
         <div class="logo">HL</div>
         <div>
-          <div class="brand-title">E-Learning DEMO</div>
+          <div class="brand-title">Էլեկտրոնային դասընթացների նախագծման տեխնալոգիաներ</div>
           <div class="brand-sub">Պարզ և ինտերակտիվ ուսուցման նմուշ</div>
         </div>
       </div>
 
       <nav>
-        <a href="index.html">Գլխավոր</a>
+        <a href="new.html">Գլխավոր</a>
         <div class="dropdown">
-          <a href="#" class="dropbtn">Թեմաներ</a>
+          <a href="themes.html" class="dropbtn">Դասընթացներ</a>
           <div class="dropdown-content">
-            <a href="themes.html?topic=1">
-              Թեմա 1. Էլեկտրոնային ուսուցման ընդհանուր հասկացությունները. հիմքային տեսական գիտելիքներ...
-            </a>
-            <a href="themes.html?topic=2">
-              Թեմա 2. Էլեկտրոնային դասընթացների էությունը, ներկայացվող պահանջները և որակյալ դասընթացի հատկանիշները
-            </a>
+            
+            <div class="dropdown-submenu">
+                <a href="themes.html?topic=1">
+                  <span class="arrow">▶</span>
+                  Թեմա 1. Ընդհանուր հասկացություններ...
+                </a>
+                <div class="submenu-content">
+                    <a href="themes.html?topic=1&section=video">Տեսադասեր</a>
+                    <a href="test.html?test=1">Թեստեր</a>
+                    <a href="practice.html?topic=1">Գործնական</a>
+                </div>
+            </div>
+            
+            <div class="dropdown-submenu">
+                <a href="themes.html?topic=2">
+                  <span class="arrow">▶</span>
+                  Թեմա 2. Դասընթացների պահանջներ...
+                </a>
+                <div class="submenu-content">
+                    <a href="themes.html?topic=2&section=video">Տեսադասեր</a>
+                    <a href="test.html?test=2">Թեստեր</a>
+                    <a href="practice.html?topic=2">Գործնական</a>
+                </div>
+            </div>
+            
             </div>
         </div>
-        <div class="dropdown">
+        <!-- <div class="dropdown">
           <a href="test.html" class="dropbtn">Թեստ</a>
           <div class="dropdown-content">
             <a href="test.html?test=1">Թեստ 1. Էլեկտրոնային ուսուցման ընդհանուր հասկացությունները</a>
             <a href="test.html?test=2">Թեստ 2. Էլեկտրոնային դասընթացների էությունը, ներկայացվող պահանջները</a>
           </div>
-        </div>
+        </div> -->
+        <a href="index.html">Դուրս գալ</a>
       </nav>
     </header>
 
     <main>
-      <section id="newVersion">
+      <section>
 
         <h2 id="topics">Թեմաներ</h2>
         <div class="topics" id="topicsList"></div>

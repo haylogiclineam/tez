@@ -408,30 +408,33 @@ function openTopic(id){
       quizText = 'Գնալ Թեստի Էջ';
   }
 
-  topicDetail.style.display='block';
-  topicDetail.innerHTML=`
-    <div class="topic-header-bar">
-        <h3 class="topic-title">${t.title}</h3>
-        <button class="btn secondary closeTopic" onclick="closeTopicDetail()">✖</button>
-    </div>
+  if (topicDetail) {
+    topicDetail.style.display='block';
+    topicDetail.innerHTML=`
+      <div class="topic-header-bar">
+          <h3 class="topic-title">${t.title}</h3>
+          <button class="btn secondary closeTopic" onclick="closeTopicDetail()">✖</button>
+      </div>
+      
+      <div class="topic-content-body">
+          
+          <div class="full-topic-text">
+               ${t.fullContent}
+          </div>
+          
+          <div class="topic-actions">
+              <button class="btn markNow" data-id="${t.id}">✅ Նշել կարդացած</button>
+              <a href="${quizLink}" class="btn secondary">${quizText}</a>
+          </div>
+      </div>`;
     
-    <div class="topic-content-body">
-        
-        <div class="full-topic-text">
-             ${t.fullContent}
-        </div>
-        
-        <div class="topic-actions">
-            <button class="btn markNow" data-id="${t.id}">✅ Նշել կարդացած</button>
-            <a href="${quizLink}" class="btn secondary">${quizText}</a>
-        </div>
-    </div>`;
-  
-  topicDetail.querySelector('.markNow').addEventListener('click',e=>{
-      markDone(+e.target.dataset.id);
-  });
-  
-  topicDetail.scrollIntoView({behavior:'smooth'});
+    topicDetail.querySelector('.markNow').addEventListener('click',e=>{
+        markDone(+e.target.dataset.id);
+    });
+    
+    topicDetail.scrollIntoView({behavior:'smooth'});
+  }
+
 }
 
 
@@ -604,3 +607,54 @@ if (document.getElementById('openQuiz') && !getUrlParameter('test')) {
     openQuiz(QUIZ_1, 'Թեստ 1. Էլեկտրոնային ուսուցման ընդհանուր հասկացությունները');
   });
 }
+
+// const section = getUrlParameter('section');
+// const practiceArea = document.getElementById('practiceArea'); 
+
+// if (section === 'practice' && topicId === '1') {
+//     displayPracticeContent(1, practiceArea);
+// }
+
+// function displayPracticeContent(id, targetElement) {
+//     let content = '';
+//     if (id === 1) {
+//         content = `
+//             <section class="practice-header">...</section>
+//             <div class="task-grid">...</div> 
+//             `;
+//     }
+//     targetElement.innerHTML = content;
+//     targetElement.style.display = 'block';
+// }
+
+function showPracticeContent(topicId) {
+  document.querySelectorAll('.practice-content').forEach(element => {
+      element.style.display = 'none';
+      element.classList.remove('active');
+  });
+
+  const targetId = `practice-${topicId}`;
+  const targetElement = document.getElementById(targetId);
+
+  if (targetElement) {
+      targetElement.style.display = 'block';
+      targetElement.classList.add('active');
+      
+      const titleElement = targetElement.querySelector('.practice-header .main-title');
+      document.title = titleElement ? titleElement.textContent : `Գործնական Աշխատանք - Թեմա ${topicId}`;
+      
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.querySelector('.practice-container')) {
+      let topicId = getUrlParameter('topic') || '1';
+      
+      if (['1', '2'].includes(topicId)) {
+          showPracticeContent(topicId);
+      } else {
+          showPracticeContent('1');
+      }
+  }
+});
