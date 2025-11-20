@@ -1,0 +1,25 @@
+.slides-preview-box {
+    flex-grow: 1;
+    min-width: 60%; 
+    background-color: #f8f9fa; /* Փոքր-ինչ մոխրագույն ֆոն */
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.slides-preview-box .big-icon {
+    font-size: 5em;
+    color: #dc3545; /* Կարմիր՝ PPTX-ի գույնը */
+    margin-bottom: 15px;
+}
+.slides-preview-box h3 {
+    color: #333;
+    margin-bottom: 15px;
+}
+.slides-preview-box p {
+    color: #6c757d;
+}
