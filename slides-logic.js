@@ -5,25 +5,28 @@ document.addEventListener('DOMContentLoaded', () => {
         const id = parseInt(topicId);
         const topic = THEMES.find(t => t.id === id);
 
-        const audioSlidesLink = `slides/topic${id}_audio.pptx`;
-        
         if (topic) {
             document.getElementById('slidesTitle').textContent = topic.title;
-            document.getElementById('currentTopic').textContent = topic.title;
-            document.getElementById('slidesSummary').innerHTML = topic.content;
+            // document.getElementById('currentTopic').textContent = topic.title;
+            // document.getElementById('slidesSummary').innerHTML = topic.content;
 
-            const downloadLinkMain = document.getElementById('downloadLinkMain');
-            const downloadLinkSidebar = document.getElementById('downloadLinkSidebar');
+            // Генерируем путь к видео динамически
+            const videoPath = `video/topic${id}.mp4`;
 
-            downloadLinkMain.href = audioSlidesLink;
-            downloadLinkSidebar.href = audioSlidesLink;
-            
-            const filename = `${topic.title} (Ձայնով).pptx`;
-            downloadLinkMain.setAttribute('download', filename);
-            downloadLinkSidebar.setAttribute('download', filename);
-
-            document.getElementById('quizLink').href = `test.html?test=${id}`;
-
+            const videoContainer = document.getElementById('videoContainer');
+            videoContainer.innerHTML = `
+                <video 
+                    width="640" 
+                    height="360" 
+                    controls 
+                    autoplay 
+                    muted 
+                    loop
+                    style="border-radius: 10px; max-width: 100%;">
+                    <source src="${videoPath}" type="video/mp4">
+                    Ձեր բրաուզերը չի աջակցում վիդեո թեգը։
+                </video>
+            `;
         } else {
             document.getElementById('slidesTitle').textContent = 'Թեմա չի գտնվել։';
         }
