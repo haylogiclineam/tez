@@ -150,3 +150,109 @@
 .practice-container {
     padding: 0 50px 30px 50px;
 }
+
+.answer-label {
+    display: block;
+    margin: 16px 0 6px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+.answer-textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1.5px solid #dcdfe3;
+    font-size: 14px;
+    font-family: inherit;
+    line-height: 1.5;
+    resize: vertical;
+    background-color: #fafafa;
+    transition: all 0.25s ease;
+}
+
+.answer-textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.12);
+}
+
+.answer-textarea::placeholder {
+    color: #9aa0a6;
+}
+
+.practice-submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+}
+
+.send-results-btn {
+    padding: 14px 36px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.25);
+}
+
+.file-upload {
+    margin-top: 10px;
+}
+
+.file-upload input[type="file"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 14px;
+    border: 2px dashed #d0d7de;
+    border-radius: 14px;
+    background-color: #fafafa;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.file-upload input[type="file"]:hover {
+    border-color: #007bff;
+    background-color: #f0f7ff;
+}
+
+.file-hint {
+    display: block;
+    margin-top: 6px;
+    font-size: 13px;
+    color: #6c757d;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+.comparison-table th,
+.comparison-table td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    vertical-align: top;
+}
+
+.comparison-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    text-align: center;
+}
+
+.comparison-table textarea {
+    width: 100%;
+    min-height: 80px;
+    resize: vertical;
+    border: none;
+    outline: none;
+    font-family: inherit;
+}
