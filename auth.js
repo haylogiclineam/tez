@@ -15,5 +15,5 @@ tabs.forEach(tab => {
 
 loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    window.location.href = "new.html";
+    window.location.href = "index.html";
   });

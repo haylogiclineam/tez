@@ -23,3 +23,35 @@
 .slides-preview-box p {
     color: #6c757d;
 }
+
+.video-content-wrapper {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.themes-sidebar {
+  background: #f6f7f9;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.theme-item {
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.theme-item:hover {
+  background: #e8ebf0;
+}
+
+.theme-item.active {
+  background: #18596a;
+  color: #fff;
+  font-weight: 600;
+}

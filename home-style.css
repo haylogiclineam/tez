@@ -200,6 +200,12 @@ h1, h2 {
     color: #222;
     margin-top: 30px;
   }
+
+  .home-actions-btn {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
   
 
 /* --- Media Queries (Responsive Design) --- */

@@ -1,36 +1,53 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const topicId = getUrlParameter('topic');
+    const topicIdFromUrl = parseInt(getUrlParameter('topic')) || 1;
 
-    if (topicId) {
-        const id = parseInt(topicId);
-        const topic = THEMES.find(t => t.id === id);
+    const sidebar = document.getElementById('themesSidebar');
+    const videoContainer = document.getElementById('videoContainer');
+    const titleEl = document.getElementById('slidesTitle');
 
-        if (topic) {
-            document.getElementById('slidesTitle').textContent = topic.title;
-            // document.getElementById('currentTopic').textContent = topic.title;
-            // document.getElementById('slidesSummary').innerHTML = topic.content;
+    THEMES.forEach(theme => {
+        const item = document.createElement('div');
+        item.className = 'theme-item';
+        item.textContent = theme.title;
+        item.dataset.id = theme.id;
 
-            // Генерируем путь к видео динамически
-            const videoPath = `video/topic${id}.mp4`;
-
-            const videoContainer = document.getElementById('videoContainer');
-            videoContainer.innerHTML = `
-                <video 
-                    width="640" 
-                    height="360" 
-                    controls 
-                    autoplay 
-                    muted 
-                    loop
-                    style="border-radius: 10px; max-width: 100%;">
-                    <source src="${videoPath}" type="video/mp4">
-                    Ձեր բրաուզերը չի աջակցում վիդեո թեգը։
-                </video>
-            `;
-        } else {
-            document.getElementById('slidesTitle').textContent = 'Թեմա չի գտնվել։';
+        if (theme.id === topicIdFromUrl) {
+            item.classList.add('active');
         }
-    } else {
-        document.getElementById('slidesTitle').textContent = 'Բացակայում է Թեմայի նույնականացուցիչը։';
+
+        item.addEventListener('click', () => {
+            loadTheme(theme.id);
+            setActive(theme.id);
+            history.pushState(null, '', `?topic=${theme.id}`);
+        });
+
+        sidebar.appendChild(item);
+    });
+
+    function loadTheme(id) {
+        const theme = THEMES.find(t => t.id === id);
+        if (!theme) return;
+
+        titleEl.textContent = theme.title;
+
+        videoContainer.innerHTML = `
+            <video 
+                controls 
+                autoplay 
+                muted 
+                loop
+                style="width:100%; border-radius:10px;">
+                <source src="video/topic${id}.mp4" type="video/mp4">
+                Ձեր բրաուզերը չի աջակցում վիդեո թեգը։
+            </video>
+        `;
     }
+
+    function setActive(id) {
+        document.querySelectorAll('.theme-item').forEach(el => {
+            el.classList.toggle('active', parseInt(el.dataset.id) === id);
+        });
+    }
+
+    loadTheme(topicIdFromUrl);
 });
