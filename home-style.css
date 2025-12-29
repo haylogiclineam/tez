@@ -206,6 +206,73 @@ h1, h2 {
     align-items: center;
     gap: 20px;
   }
+
+  .course-structure {
+  padding: 80px 20px;
+  background: #f9fafc;
+  text-align: center;
+}
+
+.course-structure h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.structure-intro {
+  max-width: 700px;
+  margin: 0 auto 50px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.chapter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.chapter-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: left;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chapter-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.chapter-number {
+  font-size: 36px;
+  font-weight: 700;
+  color: #4f276f;
+  margin-bottom: 10px;
+}
+
+.chapter-card h3 {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.chapter-subtitle {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.chapter-card ul {
+  padding-left: 18px;
+}
+
+.chapter-card li {
+  margin-bottom: 10px;
+  color: #444;
+  line-height: 1.5;
+}
+
   
 
 /* --- Media Queries (Responsive Design) --- */

@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Էլեկտրոնային ուսուցում — Դեմո</title>
+  <title>Admin Panel — Մուտք / Գրանցում</title>
+
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="test.css" />
+  <link rel="stylesheet" href="admin-style.css" />
 </head>
 <body>
-  <div class="container">
+
+<div class="container">
     <header>
       <div class="brand">
         <div class="logo">HL</div>
@@ -52,13 +54,13 @@
                   Թեմա 3. Էլեկտրոնային դասընթացներ...
               </a>
               <div class="submenu-content">
-                  <a href="themes.html?topic=3&section=video">Տեսադասեր</a>
+                  <a href="slides-audio.html?topic=3&section=slides">Տեսադասեր</a>
                   <a href="test.html?test=3">Թեստեր</a>
                   <a href="practice.html?topic=3">Առաջադրանք</a>
               </div>
             </div>
             <div class="dropdown-submenu">
-              <a href="themes.html?topic=3">
+              <a href="themes.html?topic=4">
                   <span class="arrow">▶</span>
                   Թեմա 4. Էլեկտրոնային ուսուցման...
               </a>
@@ -105,31 +107,98 @@
         </div>
         <a href="contact.html">Կապ մեզ հետ</a>
         <a href="admin.html">Ադմին</a>
-        <!-- <div class="dropdown">
-          <a href="#" class="dropbtn">Թեստ</a>
-          <div class="dropdown-content">
-            <a href="#" onclick="openQuiz(QUIZ_1, 'Թեստ 1. Էլեկտրոնային ուսուցման ընդհանուր հասկացությունները'); return false;">Թեստ 1. Էլեկտրոնային ուսուցման ընդհանուր հասկացությունները</a>
-            <a href="#" onclick="openQuiz(QUIZ_2, 'Թեստ 2. Էլեկտրոնային դասընթացների էությունը, ներկայացվող պահանջները'); return false;">Թեստ 2. Էլեկտրոնային դասընթացների էությունը, ներկայացվող պահանջները</a>
-          </div>
-        </div> -->
       </nav>
     </header>
 
-    <main>
-      <section>
-        <section id="quiz" class="card quiz-card">
-          <h3>Թեստ</h3>
-          <p class="muted">Փորձնական թեստ՝ թեմաների հիման վրա։</p>
-          <div id="quizArea" class="quiz"></div>
-          <div class="quiz-buttons">
-            <button id="openQuiz" class="btn">Սկսել թեստը</button>
-          </div>
-        </section>
-      </section>
-    </main>
-    <footer>© Էլեկտրոնային ուսուցման հարթակ</footer>
-  </div>
+  <main class="admin-card">
+<div>
+    <div class="admin-left">
+      <h1>Admin Panel</h1>
+      <p>
+        Մուտք գործեք կամ ստեղծեք ադմինիստրատորի հաշիվ՝
+        ուսումնական բովանդակությունը կառավարելու համար։
+      </p>
+    </div>
 
-  <script src="script.js"></script>
+    <div class="admin-right">
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab active" onclick="showLogin()">Մուտք</button>
+        <button class="tab" onclick="showRegister()">Գրանցում</button>
+      </div>
+
+      <!-- Login -->
+      <form id="loginForm" class="form active">
+        <h2>Մուտք գործել</h2>
+
+        <div class="form-group">
+          <label>Էլ․ փոստ</label>
+          <input type="email" placeholder="admin@mail.com" required>
+        </div>
+
+        <div class="form-group">
+          <label>Գաղտնաբառ</label>
+          <input type="password" placeholder="••••••••" required>
+        </div>
+
+        <button class="btn primary large-btn">Մուտք</button>
+      </form>
+
+      <!-- Register -->
+      <form id="registerForm" class="form">
+        <h2>Գրանցում</h2>
+
+        <div class="form-group">
+          <label>Անուն</label>
+          <input type="text" placeholder="Ձեր անունը" required>
+        </div>
+
+        <div class="form-group">
+          <label>Էլ․ փոստ</label>
+          <input type="email" placeholder="example@mail.com" required>
+        </div>
+
+        <div class="form-group">
+          <label>Գաղտնաբառ</label>
+          <input type="password" placeholder="••••••••" required>
+        </div>
+
+        <div class="form-group">
+          <label>Կրկնել գաղտնաբառը</label>
+          <input type="password" placeholder="••••••••" required>
+        </div>
+
+        <button class="btn primary large-btn">Գրանցվել</button>
+      </form>
+
+    </div>
+</div>
+
+  </main>
+    <footer>© Էլեկտրոնային ուսուցման հարթակ</footer>
+
+</div>
+
+<script>
+  const loginForm = document.getElementById("loginForm");
+  const registerForm = document.getElementById("registerForm");
+  const tabs = document.querySelectorAll(".tab");
+
+  function showLogin() {
+    loginForm.classList.add("active");
+    registerForm.classList.remove("active");
+    tabs[0].classList.add("active");
+    tabs[1].classList.remove("active");
+  }
+
+  function showRegister() {
+    registerForm.classList.add("active");
+    loginForm.classList.remove("active");
+    tabs[1].classList.add("active");
+    tabs[0].classList.remove("active");
+  }
+</script>
+
 </body>
 </html>

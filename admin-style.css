@@ -1,0 +1,103 @@
+.admin-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #4f276f, #15222d);
+  padding: 20px;
+}
+
+.admin-card {
+  background: #fff;
+  width: 100%;
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+
+.admin-left {
+  padding: 50px;
+  background: rgba(0,0,0,0.05);
+}
+
+.admin-left h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.admin-left p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.admin-right {
+  padding: 40px;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #eee;
+  font-weight: 600;
+}
+
+.tab.active {
+  background: #4f276f;
+  color: #fff;
+}
+
+.form {
+  display: none;
+}
+
+.form.active {
+  display: block;
+}
+
+.form h2 {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #4f276f;
+}
+
+@media (max-width: 800px) {
+  .admin-card {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-left {
+    display: none;
+  }
+}
